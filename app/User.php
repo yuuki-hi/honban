@@ -9,6 +9,11 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+    
+    public function works()
+    {
+        return $this->belongsToMany('App\Work');
+    }
 
     /**
      * The attributes that are mass assignable.

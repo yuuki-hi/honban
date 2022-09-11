@@ -11,6 +11,36 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', 'WorkController@user');
+
+
+// Route::get('/works', 'WorkController@index');
+
+// Route::get('/works/create', 'WorkController@create');
+
+// Route::get('/works/{work}', 'WorkController@show');
+
+// Route::post('/works', 'WorkController@store');
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/', 'WorkController@user');
+    Route::get('/works', 'WorkController@index');
+    Route::get('/works/create', 'WorkController@create');
+    
+    Route::get('/works/{work}/edit', 'WorkController@edit');
+    Route::put('/works/{work}', 'WorkController@update');
+    
+    Route::get('/works/{work}', 'WorkController@show');
+    Route::post('/works', 'WorkController@store');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::post('/bookmark_register', 'WorkController@bookmark_register');
+    Route::post('/bookmark_delete', 'WorkController@bookmark_delete');
+    Route::post('/works/{work}/upload', 'WorkController@upload');
+    
+    
 });

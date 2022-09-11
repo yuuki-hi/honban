@@ -1,0 +1,33 @@
+/*全体ここから*/
+.wrapper{
+    width: 90%;
+    margin:0 auto;
+}
+/*全体ここまで*/
+
+/*ユーザーページここから*/
+
+.flex{
+    display: flex;
+}
+
+.work{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border:solid 1px #000;
+    margin: 20px;
+    padding:10px;
+}
+
+.user_news{
+    border:solid 1px #000;
+}
+
+/*ユーザーページここまで*/
+
+.work_image{
+    width: 300px;
+}
+
