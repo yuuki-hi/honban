@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Work;
 use App\Category;
+use App\Chat;
 use App\Http\Requests\WorkRequest; 
 use Illuminate\Http\Request;
 
@@ -76,7 +77,24 @@ class WorkController extends Controller
 
         return redirect('/works/'.$work->id);
     }
+    
+    // public function chat(Work $work)
+    // {
+    //     $chats = $work->chats()->get();
+    //     return view('works/chat')->with(['work' => $work,'chats' => $chats]);  
+    // }
+    
+    public function chat(Work $work)
+    {
+        $chats = $work->chats()->get();
+        return view('works/chat')->with(['work' => $work]);  
+    }
 
+    public function chat_save(Request $request ,Work $work ,Chat $chat){
+        $input = $request['chat'];
+        $chat->fill($input)->save();
+        return redirect('/works/'.$work->id.'/chat');
+    }    
     
 }
 ?>

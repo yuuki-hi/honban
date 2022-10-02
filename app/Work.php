@@ -17,6 +17,11 @@ class Work extends Model
         return $this->belongsTo('App\Category');
     }
     
+    public function chats()   
+    {
+        return $this->hasMany('App\Chat');  
+    }
+    
     public function getPaginateByLimit(int $limit_count = 10)
     {
         // updated_atで降順に並べたあと、limitで件数制限をかける

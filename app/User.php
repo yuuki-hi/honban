@@ -14,6 +14,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Work');
     }
+    
+    public function chats()   
+    {
+        return $this->hasMany('App\Chat');  
+    }
 
     /**
      * The attributes that are mass assignable.

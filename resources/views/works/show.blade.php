@@ -61,6 +61,8 @@
  <!--登録ボタン   -->
 
 
+    <a href="/works/{{$work->id}}/chat">チャット</a>
+
 <?php
 $query=$work->title;
 $url="https://news.google.com/news/rss/search/section/q/".$query."/".$query."?hl=ja&gl=JP&ned=jp";
